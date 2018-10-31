@@ -3,62 +3,40 @@
   <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="http://code.jquery.com/jquery-2.2.0.js"></script>
-    <script type="text/javascript">
 
+    <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
        
-      /*function loadData(){
-         var dataArray = [];
-        $.getJSON('data.json',function(json) {
-           
-            for(var key in json){
-                if (json.hasOwnProperty(key)){
-                    var item = json[key];
-                    dataArray.push({
-                        voltage: item.Voltage
-                    });
-                    
-
-                    }
-                    }
-                });
-        return dataArray[0]
-      }*/
-       
-      //function loadData(x,z){
-        
-        
-    //};
-
-
+       $(document).ready(function(){
+    var tempInfo = [];
+    var voltageInfo = [];
+    
+    voltageInfo[0] = "Voltage";
+    $.getJSON('https://api.myjson.com/bins/12x98y', function (data) {
+      tempInfo[0] = [data.info[0].Voltage,data.info[0].Temperature];
+      for(var i = 1;i < data.info.length+1;i++){
+        tempInfo[i] = [data.info[i-1].Voltage,data.info[i-1].Temperature];
+        voltageInfo[i] = data.info[i-1].Voltage;
+      }
+   
+      }).error(function(){
+        console.log('error: json not loaded');
+      }).done(function() {
+      console.log( "JSON loaded!" );  
+      drawChart(tempInfo,voltageInfo);
       
-      
-     function drawChart(){
-         var tempInfo = [];
-         var voltageInfo = [];
-         $.getJSON('https://api.myjson.com/bins/1da436', function (data) {
-            for(var i = 0;i < data.info.length;i++){
-        tempInfo[i] = data.info[i].Temperature;
-        voltageInfo[i] = data.info[i].Voltage;
-    }
-
-        
-    }).error(function(){
-            console.log('error: json not loaded');
-        })
-    .done(function() {
-        console.log( "JSON loaded!" );
     });
-        console.log(tempInfo);
-        var data = google.visualization.arrayToDataTable([
-          ['Time (m)', 'Temperature (F)'],
-          [tempInfo[0], voltageInfo[0]],
-          [3,4],
-          [5,6],
-        ]);
+  });
+  
+
+      
+     function drawChart(x,y){
+         
+        
+        var data = new google.visualization.arrayToDataTable(x,true);
         var options = {
-          title: 'Environment 1: Temperature Over Time',
+          title:  'Guugle: Voltage vs Temperature',
           curveType: 'function',
           legend: { position: 'bottom' }
         };
