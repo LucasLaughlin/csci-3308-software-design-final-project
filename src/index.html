@@ -34,7 +34,7 @@
          var tempInfo = [];
          var voltageInfo = [];
          $.getJSON('https://api.myjson.com/bins/1da436', function (data) {
-    for(var i = 0;i < data.length;i++){
+    for(var i = 0;i < data.info.length;i++){
         tempInfo[i] = data.info[i].Temperature;
         voltageInfo[i] = data.info[i].Voltage;
     }
