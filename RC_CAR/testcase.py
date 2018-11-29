@@ -39,7 +39,7 @@ def forward(sec):
 
     # Wait 5 seconds
     time.sleep(sec)
-    GPIO.cleanup()
+
 
 # Drive the motor counterclockwise
 def reverse(sec):
@@ -62,7 +62,7 @@ def reverse(sec):
 
     # Wait 5 seconds
     time.sleep(sec)
-    GPIO.cleanup()
+    
 
 
 #Drive left
@@ -86,8 +86,7 @@ def left(sec):
 
     # Wait 5 seconds
     time.sleep(sec)
-    shutdown()
-    GPIO.cleanup()
+    
 
 def right(sec):
     
@@ -109,8 +108,7 @@ def right(sec):
 
     # Wait 5 seconds
     time.sleep(sec)
-    shutdown()
-    GPIO.cleanup()
+    
 
 
 def shutdown():
@@ -127,67 +125,72 @@ def shutdown():
 
 
 def hcsr():
+
     try:
+
         PIN_TRIGGER = 36
-    	PIN_ECHO = 24
-    	GPIO.setup(PIN_TRIGGER, GPIO.OUT)
-    	GPIO.setup(PIN_ECHO, GPIO.IN)
-    	GPIO.output(PIN_TRIGGER, GPIO.LOW)
+        PIN_ECHO = 24
+        GPIO.setup(PIN_TRIGGER, GPIO.OUT)
+        GPIO.setup(PIN_ECHO, GPIO.IN)
+        GPIO.output(PIN_TRIGGER, GPIO.LOW)
 
-    	print "sensor is calibrating..."
-    	time.sleep(2)
-    	print "Calculating distance"
+        print "Calculating distance"
 
-    	GPIO.output(PIN_TRIGGER, GPIO.HIGH)
+        GPIO.output(PIN_TRIGGER, GPIO.HIGH)
 
-    	time.sleep(0.00001)
+        time.sleep(0.00001)
 
-    	GPIO.output(PIN_TRIGGER, GPIO.LOW)
+        GPIO.output(PIN_TRIGGER, GPIO.LOW)
 
-    	while GPIO.input(PIN_ECHO)==0:
+        while GPIO.input(PIN_ECHO)==0:
             pulse_start_time = time.time()
-    	while GPIO.input(PIN_ECHO)==1:
+        while GPIO.input(PIN_ECHO)==1:
             pulse_end_time = time.time()
 
-    	pulse_duration = pulse_end_time - pulse_start_time
-    	distance = round(pulse_duration * 17150, 2)
-    	print "Distance:",distance,"cm"
+        pulse_duration = pulse_end_time - pulse_start_time
         
-
-
-        while distance < 25:
-            print('reverse,left', distance)
-            init()
-            reverse(.5)
-            if distance < 25:
-                print('left', distance)
-                init()
-                left(.5)
-                init()
-                reverse(.5)
-                if distance < 25:
-                    sys.exit()
-
-            else:
-                print("forward")
-                init()
-                forward(.55)
         
-       # GPIO.cleanup()
-
+        
+        distance = round(pulse_duration * 17150, 2)
+        print "Distance:",distance,"cm"
+    
+        return distance 
     except:
-        distance = 90
-        print("Exception caught")
+        distance = 100
+         
+        return distance
         GPIO.cleanup()
-       
+
+
+def detect():
+
+    init()
+    distance = hcsr()
+
+    if distance < 25:
+        print('reverse', distance)
+        reverse(1)
+        distance = hcsr()
+        if distance < 25:
+            print('left, reverse', distance)
+            left(2)
+            reverse(1)
+            distance = hcsr()
+            if distance < 25:
+                print('Trapped. SHUTTING DOWN', distance)
+        
+
+
 def main():
     init()
+    forward(2)
     hcsr()
+    detect()
+
+
+
     #GPIO.cleanup()
-
-
-GPIO.cleanup()
 if __name__ == '__main__':
     main()
 
-
+GPIO.cleanup()
