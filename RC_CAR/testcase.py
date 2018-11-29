@@ -134,7 +134,7 @@ def hcsr():
         GPIO.setup(PIN_ECHO, GPIO.IN)
         GPIO.output(PIN_TRIGGER, GPIO.LOW)
 
-        print "Calculating distance"
+        print "Calculating Distance..."
 
         GPIO.output(PIN_TRIGGER, GPIO.HIGH)
 
@@ -156,6 +156,7 @@ def hcsr():
     
         return distance 
     except:
+        print('exception caught', distance)
         distance = 100
          
         return distance
@@ -192,5 +193,4 @@ def main():
     #GPIO.cleanup()
 if __name__ == '__main__':
     main()
-
 GPIO.cleanup()
