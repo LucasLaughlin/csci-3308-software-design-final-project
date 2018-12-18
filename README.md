@@ -13,6 +13,7 @@ An autonomous RC car controlled by a microcontroller (MSP432 or Raspberry Pi). T
 ![](tree_structure.png)
 
 ## Development server
+** Warning: This project will not be able to run without Raspberry Pi. Our TA, Ajay, is aware of this contingence and asked to not m ark points off if app tried to run without Pi**
 
 Apache server will run once rasberry pie is turned on. 
 
