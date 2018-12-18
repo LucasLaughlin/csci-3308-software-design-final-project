@@ -185,3 +185,22 @@ JavaScript error: chrome://browser/content/urlbarBindings.xml, line 2709: NS_ERR
 1544306245820	Marionette	WARN	TLS certificate errors will be ignored for this session
 1544306246414	Marionette	INFO	Stopped listening on port 44133
 [Parent 11284, Gecko_IOThread] WARNING: pipe error (68): Connection reset by peer: file /build/firefox-Qjvn2X/firefox-63.0.3+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1544308839417	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.tgXvuIr707gc"
+1544308842701	Marionette	INFO	Listening on port 35651
+1544308842744	Marionette	WARN	TLS certificate errors will be ignored for this session
+1544308846626	Marionette	INFO	Stopped listening on port 35651
+[Parent 4542, Gecko_IOThread] WARNING: pipe error (68): Connection reset by peer: file /build/firefox-Qjvn2X/firefox-63.0.3+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+[Parent 4542, Gecko_IOThread] WARNING: pipe error (82): Connection reset by peer: file /build/firefox-Qjvn2X/firefox-63.0.3+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
+1544317049623	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.yMP9Kr9CNTCG"
+Running Firefox as root in a regular user's session is not supported.  ($HOME is /home/user which is owned by user.)
+1544317072568	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.5azAdqK2waOg"
+Running Firefox as root in a regular user's session is not supported.  ($HOME is /home/user which is owned by user.)
+1544317111104	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.KitwPHrbZ4so"
+Running Firefox as root in a regular user's session is not supported.  ($HOME is /home/user which is owned by user.)
+1544317212585	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.YUr0M6I19I7p"
+Running Firefox as root in a regular user's session is not supported.  ($HOME is /home/user which is owned by user.)
+1544317404436	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "-marionette" "-foreground" "-no-remote" "-profile" "/tmp/rust_mozprofile.cyqozc3gGmOC"
+1544317408943	Marionette	INFO	Listening on port 44773
+1544317409052	Marionette	WARN	TLS certificate errors will be ignored for this session
+1544317420965	Marionette	INFO	Stopped listening on port 44773
+[Parent 5966, Gecko_IOThread] WARNING: pipe error (69): Connection reset by peer: file /build/firefox-Qjvn2X/firefox-63.0.3+build1/ipc/chromium/src/chrome/common/ipc_channel_posix.cc, line 356
