@@ -1,10 +1,16 @@
 # FinalProject
 
-Temperature Sensor 
+An autonomous RC car controlled by a microcontroller (MSP432 or Raspberry Pi). The car will drive around on its own collecting sensor data (temperature data). Using our web interface, Temperature Logger, the device can amass large amounts of data and display them over long periods of time to give pertinent temperature information of an unknown room or area. This project in theory is related to the field of unmanned exploration.
 
 ## Repository Structure
+* **bd** contains files used to create database and documentation
+* **e2e**
+* **init** contains an initial Angular version of the app we were working with. Had to change strategy once Pi needed to be connected, but kept source code. Can see init version [here](https://final-project-cs3308.herokuapp.com/)
+* **RC_CAR** contains files for testing running RC car. [Video]()
+* **src** contains the files referenced later in this README, source code of project
+* **unit-testing** contains unit testing python scripts and documentation. 
 
-
+![](tree_structure.png)
 
 ## Development server
 
@@ -34,8 +40,7 @@ After these commands web app will be deployed
 Go to this link to build the web app once the server is running http://10.201.64.35/cgi-bin/webgui2.py
 
 ## Running unit tests
-* Download the Selenium drivers for chrome and firefox, which can be found [here](https://selenium-python.readthedocs.io/installation.html.).
-* Placed them in the same folder as our python scripts
+* The Selenium drivers for chrome and firefox, were downloaded [here](https://selenium-python.readthedocs.io/installation.html.) They've been provided in the unit-testing repo already.
 
 Run: 
 ```python test_selenium.py```
