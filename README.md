@@ -49,4 +49,4 @@ Run:
 
 ## Milestones Repo
 For listing and documentation of milestones see:
-[Milestones Repo](https://github.com/kaiasian/Milestones}
+[Milestones Repo](https://github.com/kaiasian/Milestones)
