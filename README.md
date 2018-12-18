@@ -2,6 +2,10 @@
 
 Temperature Sensor 
 
+## Repository Structure
+
+
+
 ## Development server
 
 Apache server will run once rasberry pie is turned on. 
