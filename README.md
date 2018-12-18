@@ -47,3 +47,6 @@ Run:
 ```python test_selenium.py```
 ```python test_chrome.py```
 
+## Milestones Repo
+For listing and documentation of milestones see:
+[Milestones Repo](https://github.com/kaiasian/Milestones}
