@@ -6,7 +6,7 @@ An autonomous RC car controlled by a microcontroller (MSP432 or Raspberry Pi). T
 * **bd** contains files used to create database and documentation
 * **e2e**
 * **init** contains an initial Angular version of the app we were working with. Had to change strategy once Pi needed to be connected, but kept source code. Can see init version [here](https://final-project-cs3308.herokuapp.com/)
-* **RC_CAR** contains files for testing running RC car. [Video]()
+* **RC_CAR** contains files for testing running RC car. [Video](https://youtu.be/YpMhOlsPqE4)
 * **src** contains the files referenced later in this README, source code of project
 * **unit-testing** contains unit testing python scripts and documentation. 
 
